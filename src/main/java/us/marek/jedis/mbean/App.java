@@ -38,8 +38,8 @@ public class App {
 			client.connect();
 			
 			final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer(); 
-	        final ObjectName name = new ObjectName("us.marek.jedis.mbean:type=JedisMBean"); 
-	        final JedisMBean mBean = new JedisMBean(jedis);
+	        final ObjectName name = new ObjectName("us.marek.jedis.mbean:type=JedisMBeanImpl"); 
+	        final JedisMonitorMBean mBean = new JedisMonitor(jedis);
 	        mbs.registerMBean(mBean, name); 
 			
 			while (true) {
