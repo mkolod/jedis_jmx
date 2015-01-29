@@ -31,12 +31,12 @@ public class App {
     	
     	try {
     		
-			pool = new JedisPool(new JedisPoolConfig(), "localhost");
-			jedis = pool.getResource();
-			client = jedis.getClient();
-			client.connect();
+		pool = new JedisPool(new JedisPoolConfig(), "localhost");
+		jedis = pool.getResource();
+		client = jedis.getClient();
+		client.connect();
 			
-			final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer(); 
+		final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer(); 
 	        final ObjectName name = new ObjectName("us.marek.jedis.mbean:type=JedisMonitor"); 
 	        final JedisMonitorMBean mBean = new JedisMonitor(jedis);
 	        mbs.registerMBean(mBean, name); 
@@ -49,7 +49,7 @@ public class App {
 				try {
 				
 					
-				Thread.sleep(100);
+					Thread.sleep(100);
 				
 				} catch (final InterruptedException ie) {
 					
