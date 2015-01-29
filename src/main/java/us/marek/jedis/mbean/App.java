@@ -1,6 +1,5 @@
 package us.marek.jedis.mbean;
 
-import java.io.IOException;
 import java.lang.management.ManagementFactory;
 
 import javax.management.InstanceAlreadyExistsException;
@@ -38,10 +37,13 @@ public class App {
 			client.connect();
 			
 			final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer(); 
-	        final ObjectName name = new ObjectName("us.marek.jedis.mbean:type=JedisMBeanImpl"); 
+	        final ObjectName name = new ObjectName("us.marek.jedis.mbean:type=JedisMonitor"); 
 	        final JedisMonitorMBean mBean = new JedisMonitor(jedis);
 	        mbs.registerMBean(mBean, name); 
 			
+	        /* Run forever until program is killed. This is just a test class
+	           to see JMX in action via VisualVM/YourKit/JProfiler.
+	         */
 			while (true) {
 				
 				try {
@@ -49,19 +51,10 @@ public class App {
 					
 				Thread.sleep(100);
 				
-				if (System.in.read() > 0) {
-					
-					break;
-				}
-
-				
 				} catch (final InterruptedException ie) {
 					
 					ie.printStackTrace();
 					
-				} catch (final IOException ioe) {
-					
-					ioe.printStackTrace();
 				}
 			}
     		 
