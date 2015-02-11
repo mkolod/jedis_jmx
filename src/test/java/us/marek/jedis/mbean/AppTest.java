@@ -238,28 +238,137 @@ public class AppTest extends TestCase {
 		assertEquals(monitor.getAofEnabled(), 0L);
 	}
 	
-	/*                                                              		
-	public long getAofRewriteInProgress();
-	public long getAofRewriteScheduled();	
-	public long getAofRewriteTimeSec();	
-	public long getAofCurrentRewriteTimeSec();	
-	public String getAofBgRewrtieStatus();	
-	public long getTotalConnectionsReceived();	
-	public long getTotalCommandsProcessed();	
-	public long getInstantaneousOpsPerSec();	
-	public long getRejectedConnections();	
-	public long getExpiredKeys();	
-	public long getEvictedKeys();
-	public long getKeySpaceHits();
-	public long getKeySpaceMisses();	
-	public long getPubSubChannels();
-	public long getPubSubPatterns();	
-	public long getLatestForkUseC();	
-	public String getRole();	
-	public long getConnectedSlaves();		
-	public double getUsedCpuSys();	
-	public double getUsedCpuUser();	
-	public double getUsedCpuSysChildren();	
-	public double getUsedCpuUserChildren(); 
-	 */
+	@Test
+	public void testAofRewriteInProgress() {
+		
+		assertEquals(monitor.getAofRewriteInProgress(), 0L);
+	}
+	
+	@Test
+	public void testAofRewriteScheduled() {
+		
+		assertEquals(monitor.getAofRewriteScheduled(), 0L);
+	}
+	
+	@Test
+	public void testAofLastRewriteTimeSec() {
+		
+		assertEquals(monitor.getAofLastRewriteTimeSec(), -1L);
+	}
+	
+	@Test
+	public void testOfCurrentRewriteTimeSec() {
+		
+		assertEquals(monitor.getAofCurrentRewriteTimeSec(), -1L);
+	}
+	
+	@Test
+	public void testAofBgRewriteStatus() {
+		
+		assertEquals(monitor.getAofBgRewriteStatus(), "ok");
+	}
+	
+	@Test 
+	public void testToalConnectionsReceived() {
+		
+		assertEquals(monitor.getTotalConnectionsReceived(), 2L);
+	}
+	
+	@Test
+	public void testTotalCommandsProcessed() {
+		
+		assertEquals(monitor.getTotalCommandsProcessed(), 1L);
+	}
+	
+	@Test
+	public void testInstantaneousOpsPerSec() {
+		
+		assertEquals(monitor.getInstantaneousOpsPerSec(), 0L);
+	}
+	
+	@Test
+	public void testRejectedConnections() {
+		
+		assertEquals(monitor.getRejectedConnections(), 0L);
+	}
+	
+	@Test 
+	public void testExpiredKeys() {
+		
+		assertEquals(monitor.getExpiredKeys(), 0L);
+	}
+	
+	@Test 
+	public void testEvicted() {
+		
+		assertEquals(monitor.getEvictedKeys(), 0L);
+	}
+	
+	@Test
+	public void testKeySpaceHits() {
+		
+		assertEquals(monitor.getKeySpaceHits(), 0L);
+		
+	}
+	
+	@Test
+	public void testKeySpaceMisses() {
+		
+		assertEquals(monitor.getKeySpaceMisses(), 0L);
+		
+	}
+	
+	@Test
+	public void testPubSubChannels() {
+		
+		assertEquals(monitor.getPubSubChannels(), 0L);
+	}
+	
+	@Test
+	public void testPubSubPatterns() {
+		
+		assertEquals(monitor.getPubSubPatterns(), 0L);
+	}
+	
+	@Test
+	public void testLatestForkUseC() {
+		
+		assertEquals(monitor.getLatestForkUseC(), 0L);
+	}
+	
+	@Test
+	public void testRole() {
+		
+		assertEquals(monitor.getRole(), "master");
+	}
+	
+	@Test
+	public void testConnectedSlaves() {
+		
+		assertEquals(monitor.getConnectedSlaves(), 0L);
+	}
+	
+	@Test
+	public void testUsedCpuSys() {
+		
+		assertEquals(monitor.getUsedCpuSys(), 0.16, 0.1);
+	}
+	
+	@Test
+	public void testUsedCpuUser() {
+		
+		assertEquals(monitor.getUsedCpuUser(), 0.10, 0.1);
+	}
+	
+	@Test
+	public void testUsedCpuSysChildren() {
+		
+		assertEquals(monitor.getUsedCpuSysChildren(), 0.00, 0.1);
+	}
+	
+	@Test
+	public void testUsedCpuUserChildren() {
+		
+		assertEquals(monitor.getUsedCpuUserChildren(), 0.00, 0.1);
+	}
 }

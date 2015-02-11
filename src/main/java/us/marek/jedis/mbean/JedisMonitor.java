@@ -64,11 +64,6 @@ public class JedisMonitor implements JedisMonitorMBean {
 	public static final String USED_CPU_SYS_CHILDREN = "used_cpu_sys_children";
 	public static final String USED_CPU_USER_CHILDREN = "used_cpu_user_children";
 	
-	/**
-	 * 
-	 * @param jedis Jedis object
-	 * @param updateFrequencyMillis How frequently to make INFO call to Redis from Java
-	 */
 	public JedisMonitor(final Jedis jedis, 
 			final long updateFrequencyMillis) {
 		
@@ -249,19 +244,17 @@ public class JedisMonitor implements JedisMonitorMBean {
 		return Long.parseLong(getMeta(AOF_REWRITE_SCHEDULED));
 	}
 	
-	public long getAofRewriteTimeSec() {
+	public long getAofLastRewriteTimeSec() {
 		
 		return Long.parseLong(getMeta(AOF_LAST_REWRITE_TIME_SEC));
 	}
-	
-	
 	
 	public long getAofCurrentRewriteTimeSec() {
 		
 		return Long.parseLong(getMeta(AOF_CURRENT_REWRITE_TIME_SEC));
 	}
 	
-	public String getAofBgRewrtieStatus() {
+	public String getAofBgRewriteStatus() {
 		
 		return getMeta(AOF_LAST_BGREWRITE_STATUS);  
 	}

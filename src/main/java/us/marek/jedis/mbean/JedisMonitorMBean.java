@@ -36,9 +36,9 @@ public interface JedisMonitorMBean {
 	public long getAofEnabled();	
 	public long getAofRewriteInProgress();
 	public long getAofRewriteScheduled();	
-	public long getAofRewriteTimeSec();	
+	public long getAofLastRewriteTimeSec();	
 	public long getAofCurrentRewriteTimeSec();	
-	public String getAofBgRewrtieStatus();	
+	public String getAofBgRewriteStatus();	
 	public long getTotalConnectionsReceived();	
 	public long getTotalCommandsProcessed();	
 	public long getInstantaneousOpsPerSec();	
