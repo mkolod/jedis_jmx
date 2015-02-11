@@ -214,14 +214,31 @@ public class AppTest extends TestCase {
 		assertEquals(monitor.getRdbBgSaveInProgress(), 0L);
 	}
 	
+	@Test
+	public void testRdbLastSaveTime() {
+		
+		assertEquals(monitor.getRdbLastSaveTime(), 1423680071L);
+	}
 	
-	/*                                                              
-	public long getRdbBgSaveInProgress();
-	public long getRdbLastSaveTime();	
-	public String getRdbLastBgSaveStatus();	
-	public long getRdbLastBgSaveTimeSec();	
-	public long getRdbBgSaveTimeSec();	
-	public long getAofEnabled();	
+	@Test
+	public void testRdbLastBgSaveStatus() {
+		
+		assertEquals(monitor.getRdbLastBgSaveStatus(), "ok");
+	}
+	
+	@Test
+	public void testRdbLastBgSaveTimeSec() {
+		
+		assertEquals(monitor.getRdbLastBgSaveTimeSec(), -1L);
+	}
+	
+	@Test
+	public void testAofEnabled() {
+		
+		assertEquals(monitor.getAofEnabled(), 0L);
+	}
+	
+	/*                                                              		
 	public long getAofRewriteInProgress();
 	public long getAofRewriteScheduled();	
 	public long getAofRewriteTimeSec();	
