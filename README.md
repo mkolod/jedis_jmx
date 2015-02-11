@@ -1,6 +1,6 @@
 # JMX MBean for Jedis
 
-[![Build Status](https://travis-ci.org/mkolod/jedis_jmx.svg)](https://travis-ci.org/mkolod/jedis_jmx) [![Coverage Status](https://coveralls.io/repos/mkolod/jedis_jmx/badge.svg)](https://coveralls.io/r/mkolod/jedis_jmx)
+[![Build Status](https://travis-ci.org/mkolod/jedis_jmx.svg)](https://travis-ci.org/mkolod/jedis_jmx)
 
 Setup
 =====
