@@ -18,7 +18,7 @@ import redis.clients.jedis.JedisPoolConfig;
  * Hello world!
  *
  */
-public class App {
+public class SampleApp {
 	
 	private static JedisPool pool = null;
 	private static Jedis jedis = null;

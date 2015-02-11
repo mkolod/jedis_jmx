@@ -5,6 +5,9 @@ import redis.clients.jedis.Jedis;
 public class JedisMonitor implements JedisMonitorMBean {
 	
 	private final Jedis jedis;
+	private final long updateFrequencyMillis;
+	private String info;
+	private long lastUpdate;
 	
 	public static final String REDIS_VERSION = "redis_version";
 	public static final String REDIS_MODE = "redis_mode";
@@ -61,11 +64,13 @@ public class JedisMonitor implements JedisMonitorMBean {
 	public static final String USED_CPU_SYS_CHILDREN = "used_cpu_sys_children";
 	public static final String USED_CPU_USER_CHILDREN = "used_cpu_user_children";
 	
-	public JedisMonitor(final Jedis jedis) {
+	public JedisMonitor(final Jedis jedis, 
+			final long updateFrequencyMillis) {
 		
 		this.jedis = jedis;		
-		
-		System.out.println(jedis.info());
+		this.updateFrequencyMillis = updateFrequencyMillis;
+		this.info = jedis.info();
+		this.lastUpdate = System.currentTimeMillis();
 	}
 	
 	public String getRedisVersion() {
@@ -338,8 +343,22 @@ public class JedisMonitor implements JedisMonitorMBean {
 		return Double.parseDouble(getMeta(USED_CPU_USER_CHILDREN));
 	}
 	
+	/**
+	 * This is done because every Redis status check is based on parsing
+	 * the info string (that's how the Jedis API and Redis reporting works),
+	 * and we don't want to get that String from Redis say every second
+	 * for ~50 different metrics. That would be a huge performance penalty.
+	 */
+	private synchronized void updateInfo() {
+		final long currentMillis = System.currentTimeMillis();
+		if (currentMillis - lastUpdate > updateFrequencyMillis) {
+			info = jedis.info();
+			lastUpdate = currentMillis;
+		}
+	}
 	private String getMeta(final String keyword) {
-    	for (final String s : jedis.info().split("\n")) {
+		updateInfo();
+    	for (final String s : info.split("\n")) {
     		if (s.contains(keyword)) {
     			return s.substring(keyword.length() + 1, s.length()).trim();
     		}
