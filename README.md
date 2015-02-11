@@ -39,4 +39,4 @@ Also note that there exists a [JMeter JMX plugin](http://jmeter-plugins.org/wiki
 Example
 =======
 
-If you have a Redis server running on localhost, you can try out the example in [us.marek.jedis.mbean.SamplwApp](https://github.com/mkolod/jedis_jmx/blob/master/src/main/java/us/marek/jedis/mbean/SampleApp.java).
+If you have a Redis server running on localhost, you can try out the example in [us.marek.jedis.mbean.SampleApp](https://github.com/mkolod/jedis_jmx/blob/master/src/main/java/us/marek/jedis/mbean/SampleApp.java).
