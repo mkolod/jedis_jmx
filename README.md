@@ -1,5 +1,7 @@
 # JMX MBean for Jedis
 
+[![Build Status](https://travis-ci.org/mkolod/jedis_jmx.svg)](https://travis-ci.org/mkolod/jedis_jmx)
+
 Setup
 =====
 
