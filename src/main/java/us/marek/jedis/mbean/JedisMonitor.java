@@ -64,6 +64,11 @@ public class JedisMonitor implements JedisMonitorMBean {
 	public static final String USED_CPU_SYS_CHILDREN = "used_cpu_sys_children";
 	public static final String USED_CPU_USER_CHILDREN = "used_cpu_user_children";
 	
+	/**
+	 * 
+	 * @param jedis Jedis object
+	 * @param updateFrequencyMillis How frequently to make INFO call to Redis from Java
+	 */
 	public JedisMonitor(final Jedis jedis, 
 			final long updateFrequencyMillis) {
 		

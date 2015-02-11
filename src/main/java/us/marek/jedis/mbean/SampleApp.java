@@ -1,6 +1,8 @@
 package us.marek.jedis.mbean;
 
+import java.io.File;
 import java.lang.management.ManagementFactory;
+import java.util.Scanner;
 
 import javax.management.InstanceAlreadyExistsException;
 import javax.management.MBeanRegistrationException;
@@ -37,9 +39,10 @@ public class SampleApp {
 		client.connect();
 			
 		final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer(); 
-	        final ObjectName name = new ObjectName("us.marek.jedis.mbean:type=JedisMonitor"); 
-	        final JedisMonitorMBean mBean = new JedisMonitor(jedis);
-	        mbs.registerMBean(mBean, name); 
+	    final ObjectName name = new ObjectName("us.marek.jedis.mbean:type=JedisMonitor");
+	    // update MBean information every 2 seconds
+	    final JedisMonitorMBean mBean = new JedisMonitor(jedis, 2000L);
+	    mbs.registerMBean(mBean, name); 
 			
 	        /* Run forever until program is killed. This is just a test class
 	           to see JMX in action via VisualVM/YourKit/JProfiler.
