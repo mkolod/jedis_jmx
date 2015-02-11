@@ -208,6 +208,11 @@ public class AppTest extends TestCase {
 		assertEquals(monitor.getRdbChangesSinceLastSave(), 0L);
 	}
 	
+	@Test
+	public void testRdbBgSaveInProgress() {
+		
+		assertEquals(monitor.getRdbBgSaveInProgress(), 0L);
+	}
 	
 	
 	/*                                                              
